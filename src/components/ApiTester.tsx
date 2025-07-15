@@ -91,7 +91,17 @@ export default function ApiTester() {
           {response && (
             <div className="mt-6">
               <h3 className="text-lg font-medium mb-2">Response</h3>
-              <ResultDisplay response={response} />
+              <ResultDisplay
+                loading={isLoading}
+                error={
+                  response.error ||
+                  (response.status && response.status >= 400
+                    ? response.message || "An error occurred"
+                    : "")
+                }
+                duration={response.duration}
+                rawResponse={JSON.stringify(response, null, 2)}
+              />
             </div>
           )}
 
