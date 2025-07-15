@@ -15,7 +15,7 @@ import {
 interface ResultDisplayProps {
   loading?: boolean;
   error?: string;
-  duration?: number;
+  duration?: number | null;
   rawResponse?: string;
 }
 
